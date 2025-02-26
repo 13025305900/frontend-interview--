@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./task1.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id="Plus-block">
+        <div class="block" id="Block"></div>
+    </div>
+
+<script>
+    var Block=document.getElementById("Block");
+    var Container=document.getElementById("Plus-block")
+    Block.addEventListener('mousedown',function(e){
+        Block.style.opacity=0.5
+        
+        var objx = e.clientX - Block.offsetLeft;
+        var objy = e.clientY - Block.offsetTop;
+        
+        document.onmousemove = function(event){
+            var maxLeft=Container.offsetWidth-Block.offsetWidth;
+            var maxTop=Container.offsetHeight-Block.offsetHeight;
+
+            var newLeft = event.pageX-objx-Container.offsetLeft;
+            var newTop = event.pageY-objy-Container.offsetTop;
+
+            if (newLeft<0) newLeft=0;
+            if (newLeft>Container.offsetWidth) newLeft=Container.offsetWidth-Block.offsetWidth;
+            if (newTop<0) newTop=0;
+            if (newTop>Container.offsetHeight) newTop=Container.offsetHeight-Block.offsetHeight;
+
+            Block.style.left = newLeft+'px';
+            Block.style.top = newTop+'px';
+
+            
+        };
+        document.onmouseup = function(){
+            Block.style.opacity=1
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+
+        
+    })
+
+    
+</script>
+
+</body>
+</html>

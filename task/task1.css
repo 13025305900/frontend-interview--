@@ -1,0 +1,16 @@
+.container{
+    height: 500px;
+    width: 500px;
+    position: relative;
+    border: 1px black solid;
+    overflow: hidden; 
+}
+
+.block{
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    position: absolute;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
