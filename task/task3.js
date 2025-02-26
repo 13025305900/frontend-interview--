@@ -59,7 +59,6 @@ function convertToJavaScript(json) {
   return processBlock(json);
 }
 
-// 测试代码
 const jsonData = {
   "type": "当开始运行",
   "next": {
